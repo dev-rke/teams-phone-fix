@@ -30,8 +30,9 @@ to modify the user agent.
 
 No user data is stored by this application.
 
-There will be some download statistics of this application by Mozilla via https://addons.mozilla.org/.
+There will be some download statistics of this application collected by Mozilla via https://addons.mozilla.org/.
 
+The source code can be found at [github](https://github.com/dev-rke/teams-phone-fix).
 
 
 ## License
