@@ -1,7 +1,7 @@
 # Teams Phone Fix
 
 This application fixes the error message in Microsoft Teams that your browser is not supported 
-to do to phone calls.
+to do phone calls.
 
 It is especially intended for Linux users, as Microsoft seems to block browsers which are not in their scope.
 Furthermore Linux users have no ability to use a native Desktop client.
