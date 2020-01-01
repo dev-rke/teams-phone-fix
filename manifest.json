@@ -12,7 +12,8 @@
     "webRequest",
     "webRequestBlocking",
     "https://teams.microsoft.com/*",
-    "storage"
+    "storage",
+    "tabs"
   ],
   "background": {
     "scripts": [

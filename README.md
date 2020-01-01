@@ -26,6 +26,9 @@ The selected user agent is stored by this application and can be customized in t
 To store data, the storage permission is required. 
 This feature will only store data when user has changed the user agent.
 
+After installation the browser tab containing https://teams.microsoft.com must be reloaded to work properly. 
+To automate this, the extension requires permission to access tabs.
+
 There will be some download statistics of this application collected by Mozilla via https://addons.mozilla.org/.
 
 The source code can be found at [github](https://github.com/dev-rke/teams-phone-fix).

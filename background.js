@@ -28,14 +28,33 @@ browser.webRequest.onBeforeSendHeaders.addListener(
 );
 
 /**
+ * handle first install / updates
+ */
+function onInstalled(details) {
+  if (details.reason === 'update' || details.reason === 'install') {
+    // handle tab reload after installation to ensure the extension will work correctly
+    browser.tabs.query({ url: 'https://teams.microsoft.com/*' }).then((tabs) => {
+      tabs.forEach((tab) => {
+        if (tab.id) {
+          browser.tabs.reload(tab.id, { bypassCache: true });
+        }
+      })
+    });
+  }
+}
+
+// register install/update handler
+browser.runtime.onInstalled.addListener(onInstalled);
+
+/**
  * watch storage for changes
  *
  * @param changes
  * @param area
  */
 function storageWatcher(changes, area) {
-  if(area === 'local') {
-    if(changes.userAgent) {
+  if (area === 'local') {
+    if (changes.userAgent) {
       userAgent = changes.userAgent.newValue;
     }
   }
