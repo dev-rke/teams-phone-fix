@@ -12,6 +12,8 @@
     "webRequest",
     "webRequestBlocking",
     "https://teams.microsoft.com/*",
+    "https://statics.teams.cdn.office.net/*",
+    "https://asyncgw.teams.microsoft.com/*",
     "storage",
     "tabs"
   ],

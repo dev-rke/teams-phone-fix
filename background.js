@@ -1,4 +1,4 @@
-const targetPage = 'https://teams.microsoft.com/*';
+const targetPages = ['https://teams.microsoft.com/*', 'https://statics.teams.cdn.office.net/*', 'https://asyncgw.teams.microsoft.com/*'];
 const fallbackUserAgent = 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.74 Safari/537.36 Edg/79.0.309.43';
 let userAgent = fallbackUserAgent;
 
@@ -23,7 +23,7 @@ function rewriteUserAgentHeader(e) {
  */
 browser.webRequest.onBeforeSendHeaders.addListener(
   rewriteUserAgentHeader,
-  { urls: [targetPage] },
+  { urls: targetPages },
   ['blocking', 'requestHeaders']
 );
 
@@ -33,13 +33,15 @@ browser.webRequest.onBeforeSendHeaders.addListener(
 function onInstalled(details) {
   if (details.reason === 'update' || details.reason === 'install') {
     // handle tab reload after installation to ensure the extension will work correctly
-    browser.tabs.query({ url: 'https://teams.microsoft.com/*' }).then((tabs) => {
-      tabs.forEach((tab) => {
-        if (tab.id) {
-          browser.tabs.reload(tab.id, { bypassCache: true });
-        }
-      })
-    });
+    targetPages.forEach((targetPage) => {
+      browser.tabs.query({ url: targetPage }).then((tabs) => {
+        tabs.forEach((tab) => {
+          if (tab.id) {
+            browser.tabs.reload(tab.id, { bypassCache: true });
+          }
+        })
+      });
+    })
   }
 }
 
