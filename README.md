@@ -20,6 +20,7 @@ It will work in the background, so you will not have to interact with it.
 ## Privacy & Permissions
 
 The extension will not send any data to anywhere except to https://teams.microsoft.com/ 
+or https://gov.teams.microsoft.us/ 
 to modify the user agent. Therefore webRequest and webRequestBlocking permissions are required.
 
 The selected user agent is stored by this application and can be customized in the extension settings page.
