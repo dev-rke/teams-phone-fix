@@ -33,8 +33,8 @@ browser.webRequest.onBeforeSendHeaders.addListener(
 function onInstalled(details) {
   if (details.reason === 'update' || details.reason === 'install') {
     // handle tab reload after installation to ensure the extension will work correctly
-    browser.tabs.query({ url: ['https://*.teams.microsoft.com/*',
-                               'https://*.teams.microsoft.us/*']
+    browser.tabs.query({ url: ['https://teams.microsoft.com/*',
+                               'https://gov.teams.microsoft.us/*']
     }).then((tabs) => {
       tabs.forEach((tab) => {
         if (tab.id) {
